@@ -49,6 +49,7 @@ var COMPONENTS = [
     components_1.ControlZoomSliderComponent,
     components_1.ControlZoomToExtentComponent,
     components_1.FormatMVTComponent,
+    components_1.FormatGeoJSONComponent,
     components_1.TileGridComponent,
     components_1.DefaultInteractionComponent,
     components_1.DoubleClickZoomInteractionComponent,

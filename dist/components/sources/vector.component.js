@@ -25,13 +25,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var openlayers_1 = require("openlayers");
 var layers_1 = require("../layers");
+var formats_1 = require("../formats");
 var source_component_1 = require("./source.component");
 var SourceVectorComponent = SourceVectorComponent_1 = (function (_super) {
     __extends(SourceVectorComponent, _super);
+    // @ContentChild(TileGridComponent) tileGridComponent: TileGridComponent;
+    // tileGrid: tilegrid.TileGrid;
     function SourceVectorComponent(layer) {
         return _super.call(this, layer) || this;
     }
-    SourceVectorComponent.prototype.ngOnInit = function () {
+    /* need the children to construct the OL3 object */
+    SourceVectorComponent.prototype.ngAfterContentInit = function () {
+        this.format = this.formatComponent.instance;
+        // this.tileGrid = this.tileGridComponent.instance;
+        // console.log('creating ol.source.VectorTile instance with:', this);
         this.instance = new openlayers_1.source.Vector(this);
         this.host.instance.setSource(this.instance);
     };
@@ -49,6 +56,14 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Boolean)
 ], SourceVectorComponent.prototype, "wrapX", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], SourceVectorComponent.prototype, "url", void 0);
+__decorate([
+    core_1.ContentChild(formats_1.FormatComponent),
+    __metadata("design:type", formats_1.FormatComponent)
+], SourceVectorComponent.prototype, "formatComponent", void 0);
 SourceVectorComponent = SourceVectorComponent_1 = __decorate([
     core_1.Component({
         selector: 'aol-source-vector',

@@ -1,13 +1,17 @@
 /// <reference types="openlayers" />
-import { OnInit } from '@angular/core';
-import { source } from 'openlayers';
+import { AfterContentInit } from '@angular/core';
+import { source, format } from 'openlayers';
 import { LayerVectorComponent } from '../layers';
+import { FormatComponent } from '../formats';
 import { SourceComponent } from './source.component';
-export declare class SourceVectorComponent extends SourceComponent implements OnInit {
+export declare class SourceVectorComponent extends SourceComponent implements AfterContentInit {
     instance: source.Vector;
     overlaps: boolean;
     useSpatialIndex: boolean;
     wrapX: boolean;
+    url: string;
+    formatComponent: FormatComponent;
+    format: format.Feature;
     constructor(layer: LayerVectorComponent);
-    ngOnInit(): void;
+    ngAfterContentInit(): void;
 }

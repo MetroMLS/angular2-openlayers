@@ -5,4 +5,5 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./format.component"));
 __export(require("./mvt.component"));
+__export(require("./geojson.component"));
 //# sourceMappingURL=index.js.map
